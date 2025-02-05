@@ -1,17 +1,24 @@
 
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
+import useFetch from "../hooks/useFetch";
 
+
+interface Post {
+    name: string;
+    description: string;
+    avatar_url: string;
+    full_name: string;
+    score: number;
+  }
+
+  interface User {
+    id: number;
+    name: string;
+    email: string;
+  }
 
 function Card() {
-
-    interface Post {
-        name: string;
-        description: string;
-        avatar_url: string;
-        full_name: string;
-        score: number;
-      }
 
     const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState(false);
@@ -28,7 +35,7 @@ function Card() {
         const response = await fetch(`https://api.github.com/search/repositories?q=created:>${last10day}&sort=stars&order=desc?page=${page}`);
         const data = await response.json();
         
-        const newPosts: Post = data.items.map((item:any) => ({
+        const newPosts: Post[] = data.items.map((item:any) => ({
             name: item.name,
             description: item.description,
             full_name: item.full_name,
@@ -36,9 +43,9 @@ function Card() {
             avatar_url: item.owner.avatar_url
           }));
 
+          setPosts((prevPosts) => [...prevPosts, ...newPosts]);
           console.log(newPosts);
 
-        setPosts((prevPosts) => [...prevPosts, newPosts]);
         setLoading(false);
     };
 
@@ -83,5 +90,4 @@ function Card() {
         </div>
     );
 }
-
 export default Card

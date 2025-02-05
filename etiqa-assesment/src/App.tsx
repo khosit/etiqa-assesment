@@ -1,11 +1,13 @@
 import Header from './Header.tsx'
-import Card from './Card2.tsx'
+import Card from './components/Card.tsx'
 
 function App() {
   return (
     <>
       <Header/>
-      <Card/>
+      <div className="container">
+        <Card/>
+      </div>
     </>
   )
 }
