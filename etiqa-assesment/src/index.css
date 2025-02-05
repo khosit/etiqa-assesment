@@ -1,0 +1,65 @@
+.card{
+  border: 1px solid rgb(190, 168, 168);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 300px;
+  display: inline-block;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card h4{
+  text-align: left;
+  padding-left: 5px;
+}
+
+.card p{
+  text-align: left;
+  padding-left: 5px;
+}
+
+.card img{
+  height: auto;;
+  width: 25px;
+}
+
+
+.info{
+  display: flex;
+  justify-content: space-between;
+}
+
+.owner {
+  display: flex;
+  align-items: center; /* Aligns items vertically */
+}
+
+.owner p{
+  flex: 1; /* Makes the paragraph take the remaining space */
+}
+
+.rate{
+  right: 0px;
+}
+
+.rate{
+  text-align: right;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.header{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgb(212, 206, 201);
+}
